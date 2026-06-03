@@ -3,104 +3,259 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gabriel Reyes | Portfolio</title>
-    <!-- Tailwind CSS para sa mabilis na pag-design -->
+    <title>Julius Gabriel M. Reyes | Portfolio</title>
+    
+    <!-- Tailwind CSS para sa layout at kulay -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config para sa custom Sky Blue colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sky: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts: Poppins para sa modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <!-- FontAwesome para sa mga icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS para sa smooth scrolling, clouds animation, at basic setup -->
     <style>
-        body { font-family: 'Inter', sans-serif; }
         html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+        
+        /* Custom Scrollbar na Sky Blue */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f0f9ff; }
+        ::-webkit-scrollbar-thumb { background: #38bdf8; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0ea5e9; }
+
+        /* Cloud Animations Setup */
+        @keyframes floatClouds {
+            0% { transform: translateX(-200px); }
+            100% { transform: translateX(100vw); }
+        }
+        
+        .cloud {
+            position: absolute;
+            background: white;
+            border-radius: 100px;
+            animation: floatClouds linear infinite;
+            filter: blur(1px); /* Pampalambot ng itsura ng ulap */
+        }
+        
+        .cloud::before, .cloud::after {
+            content: '';
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+        }
+        
+        .cloud::before {
+            width: 50%; height: 100%;
+            top: -40%; left: 15%;
+        }
+        
+        .cloud::after {
+            width: 70%; height: 140%;
+            top: -60%; right: 15%;
+        }
+        
+        /* Iba't ibang size, bilis, at pwesto ng mga ulap */
+        .c1 { width: 120px; height: 40px; top: 15%; animation-duration: 35s; opacity: 0.8; }
+        .c2 { width: 200px; height: 60px; top: 35%; animation-duration: 45s; opacity: 0.6; animation-delay: -15s; }
+        .c3 { width: 100px; height: 30px; top: 65%; animation-duration: 25s; opacity: 0.9; animation-delay: -5s; }
+        .c4 { width: 160px; height: 50px; top: 80%; animation-duration: 38s; opacity: 0.7; animation-delay: -20s; }
+        .c5 { width: 250px; height: 80px; top: 20%; animation-duration: 55s; opacity: 0.4; animation-delay: -30s; }
+        .c6 { width: 140px; height: 45px; top: 50%; animation-duration: 32s; opacity: 0.8; animation-delay: -10s; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased">
+<body class="text-slate-800 antialiased selection:bg-sky-200 selection:text-sky-900">
+
+    <!-- Animated Sky Background (Ito yung mga nagagalaw na ulap) -->
+    <div class="fixed inset-0 z-[-1] bg-gradient-to-b from-sky-200 to-sky-50 overflow-hidden pointer-events-none">
+        <div class="cloud c1"></div>
+        <div class="cloud c2"></div>
+        <div class="cloud c3"></div>
+        <div class="cloud c4"></div>
+        <div class="cloud c5"></div>
+        <div class="cloud c6"></div>
+    </div>
 
     <!-- Navbar -->
-    <nav class="bg-white shadow-md fixed w-full z-10 top-0">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <a href="#" class="text-2xl font-bold text-blue-600">GR.</a>
-                <div class="hidden md:flex space-x-6">
-                    <a href="#about" class="hover:text-blue-600 transition">About</a>
-                    <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
-                    <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
-                </div>
+    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-sky-600 tracking-wider drop-shadow-sm">JGMR<span class="text-sky-400">.</span></a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#home" class="font-medium text-slate-700 hover:text-sky-600 transition drop-shadow-sm">Home</a>
+                <a href="#about" class="font-medium text-slate-700 hover:text-sky-600 transition drop-shadow-sm">About</a>
+                <a href="#projects" class="font-medium text-slate-700 hover:text-sky-600 transition drop-shadow-sm">Projects</a>
+                <a href="#contact" class="px-5 py-2 bg-sky-500 text-white rounded-full font-medium hover:bg-sky-600 transition shadow-md shadow-sky-300">Contact Me</a>
             </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-slate-700 text-2xl focus:outline-none" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div class="md:hidden bg-white/95 backdrop-blur-md absolute w-full shadow-lg hidden flex-col items-center py-4 space-y-4" id="mobile-menu">
+            <a href="#home" class="font-medium text-slate-700 hover:text-sky-600">Home</a>
+            <a href="#about" class="font-medium text-slate-700 hover:text-sky-600">About</a>
+            <a href="#projects" class="font-medium text-slate-700 hover:text-sky-600">Projects</a>
+            <a href="#contact" class="font-medium text-sky-600">Contact Me</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="pt-32 pb-20 px-4 bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex items-center">
-        <div class="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-10">
-            <div class="flex-1 text-center md:text-left">
-                <h2 class="text-gray-500 text-xl font-semibold mb-2">Hello, I am</h2>
-                <h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-4">Gabriel Reyes</h1>
-                <p class="text-xl text-gray-600 mb-8">An aspiring Web Developer / Designer passionate about building beautiful and functional websites.</p>
-                <div class="flex gap-4 justify-center md:justify-start">
-                    <a href="#projects" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition shadow-lg">View My Work</a>
-                    <a href="#contact" class="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition">Contact Me</a>
+    <!-- Hero Section (Transparent para kita ang langit) -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 pb-12 px-6 relative overflow-hidden bg-transparent">
+        <div class="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12 z-10 relative mt-10">
+            <!-- Text Content -->
+            <div class="flex-1 text-center md:text-left bg-white/30 backdrop-blur-sm p-8 rounded-3xl shadow-sm border border-white/40" data-aos="fade-right" data-aos-duration="1000">
+                <p class="text-sky-700 font-bold tracking-wide mb-2 uppercase drop-shadow-sm">Hello, Welcome to my space</p>
+                <h1 class="text-5xl md:text-6xl font-bold text-slate-900 mb-4 leading-tight">
+                    I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-blue-700">Julius Gabriel</span><br>M. Reyes
+                </h1>
+                <h2 class="text-2xl md:text-3xl font-semibold text-slate-700 mb-6 drop-shadow-sm">Full Stack Web Developer</h2>
+                <p class="text-slate-700 font-medium text-lg mb-8 max-w-lg mx-auto md:mx-0">
+                    <i class="fa-solid fa-location-dot text-sky-600 mr-2"></i> Based in Parañaque City, Philippines
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#projects" class="px-8 py-3 bg-sky-500 text-white rounded-full font-semibold hover:bg-sky-600 hover:-translate-y-1 transition duration-300 shadow-lg shadow-sky-400">
+                        View My Work
+                    </a>
+                    <a href="mailto:gabrielreyesreyes888@gmail.com" class="px-8 py-3 border-2 border-sky-500 bg-white/50 backdrop-blur-sm text-sky-700 rounded-full font-semibold hover:bg-white hover:-translate-y-1 transition duration-300 shadow-sm">
+                        <i class="fa-regular fa-envelope mr-2"></i>Email Me
+                    </a>
                 </div>
             </div>
-            <div class="flex-1 flex justify-center">
-                <!-- Pwede mong palitan ang image link na ito ng sarili mong picture -->
-                <img src="https://ui-avatars.com/api/?name=Gabriel+Reyes&size=300&background=2563eb&color=fff" alt="Gabriel Reyes" class="rounded-full shadow-2xl border-4 border-white w-64 h-64 md:w-80 md:h-80 object-cover">
+
+            <!-- Profile Image -->
+            <div class="flex-1 flex justify-center md:justify-end" data-aos="fade-left" data-aos-duration="1000">
+                <div class="relative w-72 h-72 md:w-96 md:h-96 group">
+                    <!-- Palitan mo ang 'src' nito gamit ang link ng totoo mong picture -->
+                    <img src="https://placehold.co/400x400/87ceeb/ffffff?text=Your+Photo+Here" alt="Julius Gabriel M. Reyes" class="w-full h-full object-cover rounded-[2rem] shadow-2xl border-4 border-white/80 z-10 relative rotate-3 group-hover:rotate-0 transition duration-500">
+                    <div class="absolute inset-0 bg-sky-300 rounded-[2rem] -rotate-6 shadow-xl z-0 transition duration-500 group-hover:-rotate-3"></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">About Me</h2>
-            <div class="w-16 h-1 bg-blue-600 mx-auto mb-8"></div>
-            <p class="text-lg text-gray-600 leading-relaxed mb-8">
-                I'm currently exploring the world of web development. I love turning ideas into reality using code. I am eager to learn new technologies and improve my skills every single day. When I'm not coding, you can find me exploring new hobbies or learning about the latest tech trends.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <span class="bg-gray-200 px-4 py-2 rounded-full text-gray-700 font-semibold">HTML5</span>
-                <span class="bg-gray-200 px-4 py-2 rounded-full text-gray-700 font-semibold">CSS3</span>
-                <span class="bg-gray-200 px-4 py-2 rounded-full text-gray-700 font-semibold">JavaScript</span>
-                <span class="bg-gray-200 px-4 py-2 rounded-full text-gray-700 font-semibold">Tailwind CSS</span>
+    <!-- About Section (Glassmorphism Effect) -->
+    <section id="about" class="py-24 px-6 bg-white/70 backdrop-blur-xl border-t border-white/50">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">About Me</h2>
+                <div class="w-20 h-1.5 bg-sky-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="flex-1" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Crafting Web Experiences</h3>
+                    <p class="text-slate-700 leading-relaxed mb-6 text-lg font-medium">
+                        I am a passionate Full Stack Web Developer who loves transforming complex problems into elegant, user-friendly solutions. My journey in tech is driven by an endless curiosity to learn and build functional web applications from the ground up.
+                    </p>
+                    <p class="text-slate-700 leading-relaxed mb-8 text-lg font-medium">
+                        I bridge the gap between seamless user interfaces and robust server-side logic. Whether it's designing a clean layout or writing the logic behind a database connection, I enjoy every part of the development process.
+                    </p>
+                </div>
+                
+                <div class="flex-1 w-full" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-xl font-bold text-slate-800 mb-6 text-center md:text-left">Tech Stack & Skills</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-2 gap-4">
+                        <div class="bg-white/80 border border-sky-200 p-4 rounded-xl flex items-center gap-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-300">
+                            <i class="fa-brands fa-html5 text-4xl text-orange-500 drop-shadow-sm"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-800">HTML5</h4>
+                                <span class="text-xs font-semibold text-slate-500">Structure</span>
+                            </div>
+                        </div>
+                        <div class="bg-white/80 border border-sky-200 p-4 rounded-xl flex items-center gap-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-300">
+                            <i class="fa-brands fa-css3-alt text-4xl text-blue-500 drop-shadow-sm"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-800">CSS3</h4>
+                                <span class="text-xs font-semibold text-slate-500">Styling</span>
+                            </div>
+                        </div>
+                        <div class="bg-white/80 border border-sky-200 p-4 rounded-xl flex items-center gap-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-300">
+                            <i class="fa-brands fa-js text-4xl text-yellow-500 drop-shadow-sm"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-800">JavaScript</h4>
+                                <span class="text-xs font-semibold text-slate-500">Interactivity</span>
+                            </div>
+                        </div>
+                        <div class="bg-white/80 border border-sky-200 p-4 rounded-xl flex items-center gap-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-300">
+                            <i class="fa-brands fa-php text-4xl text-indigo-500 drop-shadow-sm"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-800">PHP</h4>
+                                <span class="text-xs font-semibold text-slate-500">Backend</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 px-4 bg-gray-100">
+    <section id="projects" class="py-24 px-6 bg-transparent border-t border-white/30">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center text-gray-900">My Projects</h2>
-            <div class="w-16 h-1 bg-blue-600 mx-auto mb-12"></div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:-translate-y-2 transition duration-300">
-                    <img src="https://placehold.co/600x400/2563eb/FFF?text=Project+1" alt="Project 1" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">My First Website</h3>
-                        <p class="text-gray-600 mb-4">A simple static website built using purely HTML and CSS to learn the basics of web structuring.</p>
-                        <a href="#" class="text-blue-600 font-semibold hover:underline">View Project <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                    </div>
-                </div>
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Past Work & Projects</h2>
+                <div class="w-20 h-1.5 bg-sky-500 mx-auto rounded-full"></div>
+            </div>
 
-                <!-- Project 2 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:-translate-y-2 transition duration-300">
-                    <img src="https://placehold.co/600x400/4f46e5/FFF?text=Project+2" alt="Project 2" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">To-Do App</h3>
-                        <p class="text-gray-600 mb-4">An interactive to-do list application using JavaScript to manage daily tasks.</p>
-                        <a href="#" class="text-blue-600 font-semibold hover:underline">View Project <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                    </div>
+            <!-- Project Card -->
+            <div class="bg-white/80 backdrop-blur-xl rounded-3xl shadow-xl overflow-hidden flex flex-col lg:flex-row group border border-white/50" data-aos="fade-up" data-aos-duration="1000">
+                <!-- Project Image -->
+                <div class="lg:w-1/2 overflow-hidden relative">
+                    <!-- Palitan mo ang link na ito ng screenshot ng mismong Campus Portal -->
+                    <img src="https://placehold.co/800x600/87ceeb/ffffff?text=Campus+Service+Portal" alt="Campus Service Portal" class="w-full h-64 lg:h-full object-cover group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-sky-900/10 group-hover:bg-transparent transition duration-500"></div>
                 </div>
-
-                <!-- Project 3 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:-translate-y-2 transition duration-300">
-                    <img src="https://placehold.co/600x400/0ea5e9/FFF?text=Project+3" alt="Project 3" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Personal Portfolio</h3>
-                        <p class="text-gray-600 mb-4">The very portfolio you are looking at right now! Built with HTML and Tailwind CSS.</p>
-                        <a href="#" class="text-blue-600 font-semibold hover:underline">View Project <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                
+                <!-- Project Details -->
+                <div class="lg:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-xs font-extrabold tracking-wider uppercase border border-sky-200">Web App</span>
+                        <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs font-extrabold tracking-wider uppercase border border-indigo-200">School Portal</span>
+                    </div>
+                    <h3 class="text-3xl font-bold text-slate-900 mb-2">Campus Service Portal</h3>
+                    <h4 class="text-lg font-bold text-sky-600 mb-6">for Regis Marie College</h4>
+                    
+                    <p class="text-slate-700 font-medium mb-8 leading-relaxed">
+                        A comprehensive digital platform developed to streamline campus services. It serves as a centralized hub for students and faculty, making administrative processes, announcements, and school services more accessible and efficient. Built from scratch utilizing modern front-end design and robust back-end logic.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-3 mb-8">
+                        <span class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-bold shadow-sm"><i class="fa-brands fa-html5 mr-1 text-orange-500"></i> HTML</span>
+                        <span class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-bold shadow-sm"><i class="fa-brands fa-css3-alt mr-1 text-blue-500"></i> CSS</span>
+                        <span class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-bold shadow-sm"><i class="fa-brands fa-js mr-1 text-yellow-500"></i> JS</span>
+                        <span class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-bold shadow-sm"><i class="fa-brands fa-php mr-1 text-indigo-500"></i> PHP</span>
                     </div>
                 </div>
             </div>
@@ -108,28 +263,66 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Get In Touch</h2>
-            <div class="w-16 h-1 bg-blue-600 mx-auto mb-8"></div>
-            <p class="text-lg text-gray-600 mb-8">Looking for opportunities or just want to say hi? My inbox is always open!</p>
+    <section id="contact" class="py-24 px-6 bg-white/70 backdrop-blur-xl border-t border-white/50 relative">
+        <div class="max-w-4xl mx-auto text-center" data-aos="zoom-in" data-aos-duration="1000">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Let's Work Together</h2>
+            <p class="text-lg font-medium text-slate-700 mb-10 max-w-2xl mx-auto">
+                Whether you have a project in mind, need a developer for your team, or just want to chat about tech, feel free to reach out. I am currently open for new opportunities!
+            </p>
             
-            <a href="mailto:your.email@example.com" class="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-700 transition shadow-lg text-lg">
-                <i class="fa-regular fa-envelope mr-2"></i> Send me an Email
+            <!-- Direct Email Button -->
+            <a href="mailto:gabrielreyesreyes888@gmail.com" class="inline-flex items-center justify-center gap-3 bg-sky-500 text-white px-10 py-5 rounded-full font-bold text-xl hover:bg-sky-600 hover:shadow-xl hover:shadow-sky-300 hover:-translate-y-1 transition duration-300">
+                <i class="fa-regular fa-envelope text-2xl"></i> 
+                gabrielreyesreyes888@gmail.com
             </a>
-
-            <div class="flex justify-center gap-6 mt-12">
-                <a href="#" class="text-gray-400 hover:text-blue-600 text-3xl transition"><i class="fa-brands fa-github"></i></a>
-                <a href="#" class="text-gray-400 hover:text-blue-600 text-3xl transition"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="#" class="text-gray-400 hover:text-blue-600 text-3xl transition"><i class="fa-brands fa-facebook"></i></a>
-            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8 text-center">
-        <p class="text-gray-400">&copy; 2026 Gabriel Reyes. Built from scratch.</p>
+    <footer class="bg-slate-900 text-slate-300 py-8 text-center border-t-4 border-sky-500 relative z-10">
+        <p class="mb-2 font-medium">Designed and built with passion.</p>
+        <p class="text-sm text-slate-400">&copy; 2026 Julius Gabriel M. Reyes. All Rights Reserved.</p>
     </footer>
 
+    <!-- AOS (Animate On Scroll) Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Initialize Scroll Animations
+        AOS.init({
+            once: false, // para mag-animate ulit kapag nag-scroll up tapos scroll down
+            offset: 100, // delay bago lumabas yung animation
+        });
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        });
+
+        // Sticky Navbar Effect (Glassmorphism kapag nag-scroll)
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/80', 'backdrop-blur-lg', 'shadow-sm', 'border-b', 'border-white/50');
+                navbar.classList.remove('bg-transparent');
+            } else {
+                navbar.classList.remove('bg-white/80', 'backdrop-blur-lg', 'shadow-sm', 'border-b', 'border-white/50');
+                navbar.classList.add('bg-transparent');
+            }
+        });
+
+        // Isara ang mobile menu kapag may na-click na link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+            });
+        });
+    </script>
 </body>
 </html>
