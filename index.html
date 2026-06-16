@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Julius Gabriel M. Reyes | Portfolio</title>
     
+    <!-- Favicon: Ito yung magpapalit sa world globe ng browser tab gamit ang me.jpg -->
+    <link rel="icon" type="image/jpeg" href="me.jpg">
+    
     <!-- Tailwind CSS para sa layout at kulay -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" type="image/jpeg" href="me.jpg">
     
     <!-- Tailwind Config para sa custom Sky Blue colors -->
     <script>
@@ -131,7 +133,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section (Transparent para kita ang langit) -->
+    <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center justify-center pt-20 pb-12 px-6 relative overflow-hidden bg-transparent">
         <div class="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12 z-10 relative mt-10">
             <!-- Text Content -->
@@ -158,15 +160,14 @@
             <!-- Profile Image -->
             <div class="flex-1 flex justify-center md:justify-end" data-aos="fade-left" data-aos-duration="1000">
                 <div class="relative w-72 h-72 md:w-96 md:h-96 group">
-                    <!-- Gagamit ng 'me.jpg'. Kapag wala pa, magpapakita ang placeholder instruction -->
-                    <img src="me.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/87ceeb/ffffff?text=I-upload+ang+me.jpg+sa+GitHub'" alt="Julius Gabriel M. Reyes" class="w-full h-full object-cover rounded-[2rem] shadow-2xl border-4 border-white/80 z-10 relative rotate-3 group-hover:rotate-0 transition duration-500">
+                    <img src="me.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/87ceeb/ffffff?text=Upload+me.jpg'" alt="Julius Gabriel M. Reyes" class="w-full h-full object-cover rounded-[2rem] shadow-2xl border-4 border-white/80 z-10 relative rotate-3 group-hover:rotate-0 transition duration-500">
                     <div class="absolute inset-0 bg-sky-300 rounded-[2rem] -rotate-6 shadow-xl z-0 transition duration-500 group-hover:-rotate-3"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section (Glassmorphism Effect) -->
+    <!-- About Section -->
     <section id="about" class="py-24 px-6 bg-white/70 backdrop-blur-xl border-t border-white/50">
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
@@ -230,36 +231,59 @@
                 <div class="w-20 h-1.5 bg-sky-500 mx-auto rounded-full"></div>
             </div>
 
-            <!-- Project Card -->
-            <div class="bg-white/80 backdrop-blur-xl rounded-3xl shadow-xl overflow-hidden flex flex-col lg:flex-row group border border-white/50" data-aos="fade-up" data-aos-duration="1000">
-                <!-- Project Image -->
-                <div class="lg:w-1/2 overflow-hidden relative">
-                    <!-- Gagamit ng 'campus-portal.jpg'. Kapag wala pa, magpapakita ang placeholder instruction -->
-                    <img src="campus-portal.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x600/87ceeb/ffffff?text=I-upload+ang+campus-portal.jpg'" alt="Campus Service Portal" class="w-full h-64 lg:h-full object-cover group-hover:scale-105 transition duration-700">
-                    <div class="absolute inset-0 bg-sky-900/10 group-hover:bg-transparent transition duration-500"></div>
-                </div>
-                
-                <!-- Project Details -->
-                <div class="lg:w-1/2 p-8 md:p-12 flex flex-col justify-center">
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-xs font-extrabold tracking-wider uppercase border border-sky-200">Web App</span>
-                        <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs font-extrabold tracking-wider uppercase border border-indigo-200">School Portal</span>
+            <div class="flex flex-col gap-12">
+                <!-- Project Card 1 (Campus Service Portal - General) -->
+                <div class="bg-white/80 backdrop-blur-xl rounded-3xl shadow-xl overflow-hidden flex flex-col lg:flex-row group border border-white/50" data-aos="fade-up" data-aos-duration="1000">
+                    <!-- Project Image -->
+                    <div class="lg:w-1/2 overflow-hidden relative">
+                        <!-- Gagamit ng 'campus-portal.jpg'. Kapag wala pa, magpapakita ang placeholder instruction -->
                     </div>
-                    <h3 class="text-3xl font-bold text-slate-900 mb-2">Campus Service Portal</h3>
-                    <h4 class="text-lg font-bold text-sky-600 mb-6">for Regis Marie College</h4>
-                    
-                    <p class="text-slate-700 font-medium mb-8 leading-relaxed">
-                        A comprehensive digital platform developed to streamline campus services. It serves as a centralized hub for students and faculty, making administrative processes, announcements, and school services more accessible and efficient. Built from scratch utilizing modern front-end design and robust back-end logic.
-                    </p>
-                    
-                    <div class="flex flex-wrap gap-3 mb-8">
-                        <span class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-bold shadow-sm"><i class="fa-brands fa-html5 mr-1 text-orange-500"></i> HTML</span>
-                        <span class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-bold shadow-sm"><i class="fa-brands fa-css3-alt mr-1 text-blue-500"></i> CSS</span>
-                        <span class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-bold shadow-sm"><i class="fa-brands fa-js mr-1 text-yellow-500"></i> JS</span>
-                        <span class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-bold shadow-sm"><i class="fa-brands fa-php mr-1 text-indigo-500"></i> PHP</span>
+                    <div class="lg:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-xs font-extrabold tracking-wider uppercase border border-sky-200">Web App</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs font-extrabold tracking-wider uppercase border border-indigo-200">School Portal</span>
+                        </div>
+                        <h3 class="text-3xl font-bold text-slate-900 mb-2">Campus Service Portal</h3>
+                        <h4 class="text-lg font-bold text-sky-600 mb-6">for Regis Marie College</h4>
+                        <p class="text-slate-700 font-medium mb-8 leading-relaxed">
+                            A comprehensive digital platform developed to streamline campus services. It serves as a centralized hub for students and faculty, making administrative processes, announcements, and school services more accessible and efficient. Built from scratch utilizing modern front-end design and robust back-end logic.
+                        </p>
+                        <div class="flex flex-wrap gap-3 mb-8">
+                            <span class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-bold shadow-sm"><i class="fa-brands fa-html5 mr-1 text-orange-500"></i> HTML</span>
+                            <span class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-bold shadow-sm"><i class="fa-brands fa-css3-alt mr-1 text-blue-500"></i> CSS</span>
+                            <span class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-bold shadow-sm"><i class="fa-brands fa-js mr-1 text-yellow-500"></i> JS</span>
+                            <span class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-bold shadow-sm"><i class="fa-brands fa-php mr-1 text-indigo-500"></i> PHP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 (Academic Portal Login - NEW) -->
+                <!-- Pansinin na lg:flex-row-reverse ito para maiba naman ang pwesto ng picture -->
+                <div class="bg-white/80 backdrop-blur-xl rounded-3xl shadow-xl overflow-hidden flex flex-col lg:flex-row-reverse group border border-white/50" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="lg:w-1/2 overflow-hidden relative">
+                        <img src="academic-portal.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x600/87ceeb/ffffff?text=Upload+academic-portal.jpg'" alt="Student Information and Academic Portal" class="w-full h-64 lg:h-full object-cover group-hover:scale-105 transition duration-700 object-top">
+                        <div class="absolute inset-0 bg-sky-900/10 group-hover:bg-transparent transition duration-500"></div>
+                    </div>
+                    <div class="lg:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-xs font-extrabold tracking-wider uppercase border border-sky-200">Information System</span>
+                            <span class="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-xs font-extrabold tracking-wider uppercase border border-teal-200">Login Module</span>
+                        </div>
+                        <h3 class="text-3xl font-bold text-slate-900 mb-2">Student Information & Academic Portal</h3>
+                        <h4 class="text-lg font-bold text-sky-600 mb-6">for Regis Marie College</h4>
+                        <p class="text-slate-700 font-medium mb-8 leading-relaxed">
+                            A secure, role-based entry system designed specifically for the Regis Marie College community. It features a responsive layout with distinct access levels for students and faculty members, ensuring data privacy and a smooth login experience.
+                        </p>
+                        <div class="flex flex-wrap gap-3 mb-8">
+                            <span class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-bold shadow-sm"><i class="fa-brands fa-html5 mr-1 text-orange-500"></i> HTML</span>
+                            <span class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-bold shadow-sm"><i class="fa-brands fa-css3-alt mr-1 text-blue-500"></i> CSS</span>
+                            <span class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-bold shadow-sm"><i class="fa-solid fa-database mr-1 text-sky-500"></i> MySQL</span>
+                            <span class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-bold shadow-sm"><i class="fa-brands fa-php mr-1 text-indigo-500"></i> PHP</span>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -292,8 +316,8 @@
     <script>
         // Initialize Scroll Animations
         AOS.init({
-            once: false, // para mag-animate ulit kapag nag-scroll up tapos scroll down
-            offset: 100, // delay bago lumabas yung animation
+            once: false,
+            offset: 100,
         });
 
         // Mobile Menu Toggle
@@ -305,7 +329,7 @@
             menu.classList.toggle('flex');
         });
 
-        // Sticky Navbar Effect (Glassmorphism kapag nag-scroll)
+        // Sticky Navbar Effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
