@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Julius Gabriel M. Reyes | Virtual Assistant</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="me.jpg">
+    <title>Julius Gabriel M. Reyes | Virtual Assistant & Web Specialist</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/jpeg" href="me.jpg">
     
-    <!-- Tailwind Config -->
+    <!-- Tailwind Config para sa custom Sky Blue colors -->
     <script>
         tailwind.config = {
             theme: {
@@ -35,11 +33,9 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome -->
+    <!-- FontAwesome para sa icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- AOS (Animate On Scroll) CSS -->
+    <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <!-- Custom CSS -->
@@ -84,6 +80,7 @@
             top: -60%; right: 15%;
         }
         
+        /* Iba't ibang size, bilis, at pwesto ng mga ulap */
         .c1 { width: 120px; height: 40px; top: 15%; animation-duration: 35s; opacity: 0.8; }
         .c2 { width: 200px; height: 60px; top: 35%; animation-duration: 45s; opacity: 0.6; animation-delay: -15s; }
         .c3 { width: 100px; height: 30px; top: 65%; animation-duration: 25s; opacity: 0.9; animation-delay: -5s; }
@@ -92,25 +89,25 @@
         .c6 { width: 140px; height: 45px; top: 50%; animation-duration: 32s; opacity: 0.8; animation-delay: -10s; }
 
         /* Floating Animation para sa Profile Picture */
-        @keyframes floatImage {
-            0% { transform: translateY(0px) rotate(3deg); }
+        @keyframes floatProfile {
+            0%, 100% { transform: translateY(0px) rotate(3deg); }
             50% { transform: translateY(-15px) rotate(0deg); }
-            100% { transform: translateY(0px) rotate(3deg); }
         }
-        .floating-img {
-            animation: floatImage 4s ease-in-out infinite;
+        .floating-profile {
+            animation: floatProfile 6s ease-in-out infinite;
         }
 
-        /* Typing cursor style */
-        .typed-cursor {
-            color: #0ea5e9;
-            font-size: 1.2em;
+        /* Typing Effect Cursor */
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s step-start infinite;
         }
+        @keyframes blink { 50% { opacity: 0; } }
     </style>
 </head>
 <body class="text-slate-800 antialiased selection:bg-sky-200 selection:text-sky-900">
 
-    <!-- Background Clouds -->
+    <!-- Animated Sky Background -->
     <div class="fixed inset-0 z-[-1] bg-gradient-to-b from-sky-200 to-sky-50 overflow-hidden pointer-events-none">
         <div class="cloud c1"></div>
         <div class="cloud c2"></div>
@@ -128,8 +125,8 @@
             <div class="hidden md:flex space-x-8 items-center">
                 <a href="#home" class="font-medium text-slate-700 hover:text-sky-600 transition drop-shadow-sm">Home</a>
                 <a href="#about" class="font-medium text-slate-700 hover:text-sky-600 transition drop-shadow-sm">About</a>
-                <a href="#projects" class="font-medium text-slate-700 hover:text-sky-600 transition drop-shadow-sm">Experience</a>
-                <a href="#contact" class="px-5 py-2 bg-sky-500 text-white rounded-full font-medium hover:bg-sky-600 transition shadow-md shadow-sky-300 hover:scale-105 duration-300">Contact Me</a>
+                <a href="#projects" class="font-medium text-slate-700 hover:text-sky-600 transition drop-shadow-sm">Projects</a>
+                <a href="#contact" class="px-5 py-2 bg-sky-500 text-white rounded-full font-medium hover:bg-sky-600 transition shadow-md shadow-sky-300">Contact Me</a>
             </div>
 
             <button class="md:hidden text-slate-700 text-2xl focus:outline-none" id="mobile-menu-btn">
@@ -137,10 +134,11 @@
             </button>
         </div>
 
+        <!-- Mobile Menu -->
         <div class="md:hidden bg-white/95 backdrop-blur-md absolute w-full shadow-lg hidden flex-col items-center py-4 space-y-4" id="mobile-menu">
             <a href="#home" class="font-medium text-slate-700 hover:text-sky-600">Home</a>
             <a href="#about" class="font-medium text-slate-700 hover:text-sky-600">About</a>
-            <a href="#projects" class="font-medium text-slate-700 hover:text-sky-600">Experience</a>
+            <a href="#projects" class="font-medium text-slate-700 hover:text-sky-600">Projects</a>
             <a href="#contact" class="font-medium text-sky-600">Contact Me</a>
         </div>
     </nav>
@@ -148,25 +146,25 @@
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center justify-center pt-20 pb-12 px-6 relative overflow-hidden bg-transparent">
         <div class="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12 z-10 relative mt-10">
-            
-            <div class="flex-1 text-center md:text-left bg-white/30 backdrop-blur-sm p-8 rounded-3xl shadow-sm border border-white/40" data-aos="fade-right" data-aos-duration="1000">
+            <!-- Text Content -->
+            <div class="flex-1 text-center md:text-left bg-white/40 backdrop-blur-md p-8 rounded-3xl shadow-lg border border-white/60" data-aos="fade-right" data-aos-duration="1000">
                 <p class="text-sky-700 font-bold tracking-wide mb-2 uppercase drop-shadow-sm">Hello, Welcome to my space</p>
                 <h1 class="text-5xl md:text-6xl font-bold text-slate-900 mb-4 leading-tight">
                     I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-blue-700">Julius Gabriel</span><br>M. Reyes
                 </h1>
                 
-                <!-- Typing Effect Container -->
-                <h2 class="text-2xl md:text-3xl font-semibold text-slate-700 mb-6 drop-shadow-sm h-10">
-                    <span id="typed-text"></span>
+                <!-- Animated Typing Text -->
+                <h2 class="text-2xl md:text-3xl font-semibold text-sky-600 mb-6 drop-shadow-sm min-h-[40px]">
+                    <span id="typed-text" class="typing-cursor"></span>
                 </h2>
                 
                 <p class="text-slate-700 font-medium text-lg mb-8 max-w-lg mx-auto md:mx-0">
-                    <i class="fa-solid fa-location-dot text-sky-600 mr-2 animate-bounce"></i> Based in Parañaque City, Philippines
+                    <i class="fa-solid fa-location-dot text-sky-600 mr-2"></i> Based in Parañaque City, Philippines
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                     <a href="#projects" class="px-8 py-3 bg-sky-500 text-white rounded-full font-semibold hover:bg-sky-600 hover:-translate-y-1 transition duration-300 shadow-lg shadow-sky-400">
-                        View My Experience
+                        View My Work
                     </a>
                     <a href="mailto:gabrielreyesreyes888@gmail.com" class="px-8 py-3 border-2 border-sky-500 bg-white/50 backdrop-blur-sm text-sky-700 rounded-full font-semibold hover:bg-white hover:-translate-y-1 transition duration-300 shadow-sm">
                         <i class="fa-regular fa-envelope mr-2"></i>Email Me
@@ -174,17 +172,17 @@
                 </div>
             </div>
 
-            <!-- Profile Image na Lumulutang (Floating) -->
+            <!-- Profile Image (Floating Animation) -->
             <div class="flex-1 flex justify-center md:justify-end" data-aos="fade-left" data-aos-duration="1000">
-                <div class="relative w-72 h-72 md:w-96 md:h-96 group floating-img">
-                    <img src="me.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/87ceeb/ffffff?text=I-upload+ang+me.jpg+sa+GitHub'" alt="Julius Gabriel M. Reyes" class="w-full h-full object-cover rounded-[2rem] shadow-2xl border-4 border-white/80 z-10 relative transition duration-500">
-                    <div class="absolute inset-0 bg-sky-300 rounded-[2rem] shadow-xl z-0 -rotate-3 group-hover:rotate-6 transition duration-500"></div>
+                <div class="relative w-72 h-72 md:w-96 md:h-96 group floating-profile">
+                    <img src="me.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/87ceeb/ffffff?text=I-upload+ang+me.jpg'" alt="Julius Gabriel M. Reyes" class="w-full h-full object-cover rounded-[2rem] shadow-2xl border-4 border-white/80 z-10 relative">
+                    <div class="absolute inset-0 bg-sky-300 rounded-[2rem] -rotate-6 shadow-xl z-0"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About / VA Skills Section -->
     <section id="about" class="py-24 px-6 bg-white/70 backdrop-blur-xl border-t border-white/50">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
@@ -192,78 +190,80 @@
                 <div class="w-20 h-1.5 bg-sky-500 mx-auto rounded-full"></div>
             </div>
 
-            <div class="flex flex-col lg:flex-row gap-12 items-center">
-                <div class="lg:w-5/12" data-aos="fade-up" data-aos-delay="200">
-                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Your Reliable Digital Support</h3>
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="flex-1" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Your Reliable Virtual Partner</h3>
                     <p class="text-slate-700 leading-relaxed mb-6 text-lg font-medium">
-                        I am a versatile and highly adaptable professional offering a unique blend of administrative support and technical web skills. My goal is to help businesses and entrepreneurs streamline their daily operations so they can focus on growth.
+                        I am a highly adaptable <strong>Virtual Assistant and Web Specialist</strong> dedicated to helping businesses run smoothly. I specialize in streamlining administrative workflows, managing data accuracy, and providing top-tier support for day-to-day operations.
                     </p>
                     <p class="text-slate-700 leading-relaxed mb-8 text-lg font-medium">
-                        Whether it's managing data entry, organizing schedules, providing reliable customer support, or maintaining and designing functional websites, I am dedicated to delivering high-quality and efficient results for every task assigned to me.
+                        What sets me apart is my technical background in web development. Beyond standard VA tasks, I can manage, update, and troubleshoot your digital platforms, giving you an all-in-one support system for your business.
                     </p>
                 </div>
                 
-                <div class="lg:w-7/12 w-full" data-aos="fade-up" data-aos-delay="400">
-                    <h3 class="text-xl font-bold text-slate-800 mb-6 text-center lg:text-left">Tools & Competencies</h3>
+                <div class="flex-1 w-full" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-xl font-bold text-slate-800 mb-6 text-center md:text-left">Core Competencies & Tools</h3>
                     
-                    <!-- Expanded 3D Interactive Skill Cards (3 columns on medium/large screens) -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    <!-- 3D Interactive Grid for VA Skills (8 Items) -->
+                    <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                         
-                        <!-- Card 1: VA -->
-                        <div class="bg-white/90 border border-sky-200 p-4 rounded-xl flex flex-col items-center text-center gap-2 shadow-sm" data-tilt data-tilt-glare="true" data-tilt-max-glare="0.2" data-tilt-scale="1.05">
+                        <div class="tilt-card bg-white/90 border border-sky-200 p-4 rounded-xl flex flex-col items-center text-center gap-2 shadow-sm cursor-pointer" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
                             <i class="fa-solid fa-headset text-3xl text-sky-500 drop-shadow-sm"></i>
                             <div>
                                 <h4 class="font-bold text-slate-800 text-sm">Virtual Assistance</h4>
-                                <span class="text-xs font-semibold text-slate-500">Admin & Support</span>
                             </div>
                         </div>
 
-                        <!-- Card 2: Data Entry -->
-                        <div class="bg-white/90 border border-sky-200 p-4 rounded-xl flex flex-col items-center text-center gap-2 shadow-sm" data-tilt data-tilt-glare="true" data-tilt-max-glare="0.2" data-tilt-scale="1.05">
-                            <i class="fa-solid fa-clipboard-list text-3xl text-teal-500 drop-shadow-sm"></i>
+                        <div class="tilt-card bg-white/90 border border-sky-200 p-4 rounded-xl flex flex-col items-center text-center gap-2 shadow-sm cursor-pointer" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
+                            <i class="fa-solid fa-keyboard text-3xl text-indigo-500 drop-shadow-sm"></i>
                             <div>
-                                <h4 class="font-bold text-slate-800 text-sm">Data Entry</h4>
-                                <span class="text-xs font-semibold text-slate-500">Speed & Accuracy</span>
+                                <h4 class="font-bold text-slate-800 text-sm">Data Entry & Admin</h4>
                             </div>
                         </div>
 
-                        <!-- Card 3: Microsoft Office -->
-                        <div class="bg-white/90 border border-sky-200 p-4 rounded-xl flex flex-col items-center text-center gap-2 shadow-sm" data-tilt data-tilt-glare="true" data-tilt-max-glare="0.2" data-tilt-scale="1.05">
-                            <i class="fa-brands fa-microsoft text-3xl text-blue-600 drop-shadow-sm"></i>
-                            <div>
-                                <h4 class="font-bold text-slate-800 text-sm">Microsoft Office</h4>
-                                <span class="text-xs font-semibold text-slate-500">Excel, Word, PPT</span>
-                            </div>
-                        </div>
-
-                        <!-- Card 4: Google Workspace -->
-                        <div class="bg-white/90 border border-sky-200 p-4 rounded-xl flex flex-col items-center text-center gap-2 shadow-sm" data-tilt data-tilt-glare="true" data-tilt-max-glare="0.2" data-tilt-scale="1.05">
+                        <div class="tilt-card bg-white/90 border border-sky-200 p-4 rounded-xl flex flex-col items-center text-center gap-2 shadow-sm cursor-pointer" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
                             <i class="fa-brands fa-google text-3xl text-red-500 drop-shadow-sm"></i>
                             <div>
                                 <h4 class="font-bold text-slate-800 text-sm">Google Workspace</h4>
-                                <span class="text-xs font-semibold text-slate-500">Sheets, Docs, Drive</span>
                             </div>
                         </div>
 
-                        <!-- Card 5: Comm Tools -->
-                        <div class="bg-white/90 border border-sky-200 p-4 rounded-xl flex flex-col items-center text-center gap-2 shadow-sm" data-tilt data-tilt-glare="true" data-tilt-max-glare="0.2" data-tilt-scale="1.05">
-                            <i class="fa-solid fa-comments text-3xl text-purple-500 drop-shadow-sm"></i>
+                        <div class="tilt-card bg-white/90 border border-sky-200 p-4 rounded-xl flex flex-col items-center text-center gap-2 shadow-sm cursor-pointer" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
+                            <i class="fa-brands fa-windows text-3xl text-blue-600 drop-shadow-sm"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">Microsoft Office</h4>
+                            </div>
+                        </div>
+
+                        <div class="tilt-card bg-white/90 border border-sky-200 p-4 rounded-xl flex flex-col items-center text-center gap-2 shadow-sm cursor-pointer" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
+                            <i class="fa-solid fa-users-gear text-3xl text-orange-500 drop-shadow-sm"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">CRM Systems</h4>
+                            </div>
+                        </div>
+
+                        <div class="tilt-card bg-white/90 border border-sky-200 p-4 rounded-xl flex flex-col items-center text-center gap-2 shadow-sm cursor-pointer" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
+                            <i class="fa-solid fa-list-check text-3xl text-emerald-500 drop-shadow-sm"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">Task Management</h4>
+                            </div>
+                        </div>
+
+                        <div class="tilt-card bg-white/90 border border-sky-200 p-4 rounded-xl flex flex-col items-center text-center gap-2 shadow-sm cursor-pointer" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
+                            <i class="fa-solid fa-comments text-3xl text-teal-500 drop-shadow-sm"></i>
                             <div>
                                 <h4 class="font-bold text-slate-800 text-sm">Communication</h4>
-                                <span class="text-xs font-semibold text-slate-500">Zoom, Slack, Teams</span>
                             </div>
                         </div>
 
-                        <!-- Card 6: Web Support -->
-                        <div class="bg-white/90 border border-sky-200 p-4 rounded-xl flex flex-col items-center text-center gap-2 shadow-sm" data-tilt data-tilt-glare="true" data-tilt-max-glare="0.2" data-tilt-scale="1.05">
-                            <i class="fa-solid fa-laptop-code text-3xl text-indigo-500 drop-shadow-sm"></i>
+                        <div class="tilt-card bg-white/90 border border-sky-200 p-4 rounded-xl flex flex-col items-center text-center gap-2 shadow-sm cursor-pointer" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
+                            <i class="fa-solid fa-laptop-code text-3xl text-slate-700 drop-shadow-sm"></i>
                             <div>
-                                <h4 class="font-bold text-slate-800 text-sm">Web Support</h4>
-                                <span class="text-xs font-semibold text-slate-500">CMS & Tech Mainte</span>
+                                <h4 class="font-bold text-slate-800 text-sm">Web Management</h4>
                             </div>
                         </div>
-
                     </div>
+
                 </div>
             </div>
         </div>
@@ -273,51 +273,51 @@
     <section id="projects" class="py-24 px-6 bg-transparent border-t border-white/30">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Past Work & Experience</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Project Highlights</h2>
                 <div class="w-20 h-1.5 bg-sky-500 mx-auto rounded-full"></div>
             </div>
 
             <div class="flex flex-col gap-12">
-                <!-- Project 1 (With 3D Tilt) -->
-                <div class="bg-white/90 backdrop-blur-xl rounded-3xl shadow-xl overflow-hidden flex flex-col lg:flex-row border border-white/50" data-aos="fade-up" data-tilt data-tilt-glare="true" data-tilt-max-glare="0.1" data-tilt-max="2">
+                <!-- Unang Project -->
+                <div class="tilt-card bg-white/80 backdrop-blur-xl rounded-3xl shadow-xl overflow-hidden flex flex-col lg:flex-row group border border-white/50" data-aos="fade-up" data-aos-duration="1000" data-tilt data-tilt-max="2" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
                     <div class="lg:w-1/2 overflow-hidden relative">
-                        <img src="campus-portal.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x600/87ceeb/ffffff?text=Campus+Portal'" alt="Campus Service Portal" class="w-full h-64 lg:h-full object-cover">
+                        <img src="campus-portal.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x600/87ceeb/ffffff?text=I-upload+ang+campus-portal.jpg'" alt="Campus Service Portal" class="w-full h-64 lg:h-full object-cover group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-sky-900/10 group-hover:bg-transparent transition duration-500"></div>
                     </div>
                     <div class="lg:w-1/2 p-8 md:p-12 flex flex-col justify-center">
                         <div class="flex items-center gap-2 mb-4">
-                            <span class="px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-xs font-extrabold tracking-wider uppercase border border-sky-200">Tech Implementation</span>
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs font-extrabold tracking-wider uppercase border border-indigo-200">School Portal</span>
+                            <span class="px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-xs font-extrabold tracking-wider uppercase border border-sky-200">System Organization</span>
                         </div>
                         <h3 class="text-3xl font-bold text-slate-900 mb-2">Campus Service Portal</h3>
                         <h4 class="text-lg font-bold text-sky-600 mb-6">for Regis Marie College</h4>
                         <p class="text-slate-700 font-medium mb-8 leading-relaxed">
-                            A comprehensive digital platform developed to streamline campus services. It serves as a centralized hub for students and faculty, making administrative processes, announcements, and school services more accessible and efficient.
+                            A comprehensive digital platform developed to streamline campus services. It serves as a centralized hub for users, showcasing my ability to organize complex data, manage administrative workflows, and maintain digital platforms efficiently.
                         </p>
                         <div class="flex flex-wrap gap-3 mb-8">
-                            <span class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-bold shadow-sm"><i class="fa-solid fa-tasks mr-1 text-orange-500"></i> Project Planning</span>
-                            <span class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-bold shadow-sm"><i class="fa-solid fa-code mr-1 text-blue-500"></i> Tech Integration</span>
+                            <span class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-bold shadow-sm">Project Planning</span>
+                            <span class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-bold shadow-sm">Data Management</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 2 (With 3D Tilt) -->
-                <div class="bg-white/90 backdrop-blur-xl rounded-3xl shadow-xl overflow-hidden flex flex-col lg:flex-row-reverse border border-white/50" data-aos="fade-up" data-tilt data-tilt-glare="true" data-tilt-max-glare="0.1" data-tilt-max="2">
+                <!-- Pangalawang Project -->
+                <div class="tilt-card bg-white/80 backdrop-blur-xl rounded-3xl shadow-xl overflow-hidden flex flex-col lg:flex-row-reverse group border border-white/50" data-aos="fade-up" data-aos-duration="1000" data-tilt data-tilt-max="2" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
                     <div class="lg:w-1/2 overflow-hidden relative">
-                        <img src="academic-portal.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x600/87ceeb/ffffff?text=Academic+Portal'" alt="Academic Portal Login" class="w-full h-64 lg:h-full object-cover">
+                        <img src="academic-portal.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x600/87ceeb/ffffff?text=I-upload+ang+academic-portal.jpg'" alt="Student Information Portal" class="w-full h-64 lg:h-full object-cover group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-sky-900/10 group-hover:bg-transparent transition duration-500"></div>
                     </div>
                     <div class="lg:w-1/2 p-8 md:p-12 flex flex-col justify-center">
                         <div class="flex items-center gap-2 mb-4">
-                            <span class="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-xs font-extrabold tracking-wider uppercase border border-teal-200">Data Management</span>
-                            <span class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs font-extrabold tracking-wider uppercase border border-emerald-200">Access Control</span>
+                            <span class="px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-xs font-extrabold tracking-wider uppercase border border-sky-200">Data Security</span>
                         </div>
                         <h3 class="text-3xl font-bold text-slate-900 mb-2">Student Information & Academic Portal</h3>
                         <h4 class="text-lg font-bold text-sky-600 mb-6">for Regis Marie College</h4>
                         <p class="text-slate-700 font-medium mb-8 leading-relaxed">
-                            A secure, role-based entry system designed specifically for the Regis Marie College community. It features a responsive layout with distinct access levels for students and faculty members, ensuring data privacy and a smooth login experience.
+                            A secure entry system designed specifically for managing sensitive records. This highlights my competency in handling confidential data, managing user access levels, and ensuring that digital environments are organized and secure.
                         </p>
                         <div class="flex flex-wrap gap-3 mb-8">
-                            <span class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-bold shadow-sm"><i class="fa-solid fa-database mr-1 text-sky-500"></i> Database Setup</span>
-                            <span class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-bold shadow-sm"><i class="fa-solid fa-user-shield mr-1 text-indigo-500"></i> System Security</span>
+                            <span class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-bold shadow-sm">System Security</span>
+                            <span class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-lg text-sm font-bold shadow-sm">Database Setup</span>
                         </div>
                     </div>
                 </div>
@@ -328,13 +328,13 @@
     <!-- Contact Section -->
     <section id="contact" class="py-24 px-6 bg-white/70 backdrop-blur-xl border-t border-white/50 relative">
         <div class="max-w-4xl mx-auto text-center" data-aos="zoom-in" data-aos-duration="1000">
-            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Let's Work Together</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Ready to Optimize Your Workflow?</h2>
             <p class="text-lg font-medium text-slate-700 mb-10 max-w-2xl mx-auto">
-                Whether you need a reliable Virtual Assistant to handle daily tasks or a tech-savvy professional for a project, I am ready to help. Reach out and let's discuss how I can add value to your team!
+                Whether you need help with daily administrative tasks, data management, or maintaining your website, I'm here to support your business. Let's talk!
             </p>
             
-            <a href="mailto:gabrielreyesreyes888@gmail.com" class="inline-flex items-center justify-center gap-3 bg-sky-500 text-white px-10 py-5 rounded-full font-bold text-xl hover:bg-sky-600 hover:shadow-xl hover:shadow-sky-300 hover:-translate-y-1 hover:scale-105 transition duration-300">
-                <i class="fa-regular fa-envelope text-2xl animate-pulse"></i> 
+            <a href="mailto:gabrielreyesreyes888@gmail.com" class="inline-flex items-center justify-center gap-3 bg-sky-500 text-white px-10 py-5 rounded-full font-bold text-xl hover:bg-sky-600 hover:shadow-xl hover:shadow-sky-300 hover:-translate-y-1 transition duration-300">
+                <i class="fa-regular fa-envelope text-2xl"></i> 
                 gabrielreyesreyes888@gmail.com
             </a>
         </div>
@@ -342,42 +342,29 @@
 
     <!-- Footer -->
     <footer class="bg-slate-900 text-slate-300 py-8 text-center border-t-4 border-sky-500 relative z-10">
-        <p class="mb-2 font-medium">Dedicated to delivering excellence.</p>
+        <p class="mb-2 font-medium">Designed and built with passion.</p>
         <p class="text-sm text-slate-400">&copy; 2026 Julius Gabriel M. Reyes. All Rights Reserved.</p>
     </footer>
 
-    <!-- Scripts for Interactivity -->
+    <!-- Scripts -->
+    <!-- AOS for Scroll Animations -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script> <!-- Typing Animation -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script> <!-- 3D Tilt Cards -->
+    <!-- Vanilla Tilt for 3D Cards Effect -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     
     <script>
-        // 1. Initialize Animate On Scroll (AOS)
+        // Initialize AOS
         AOS.init({ once: false, offset: 100 });
 
-        // 2. Initialize Typing Effect
-        var typed = new Typed('#typed-text', {
-            strings: [
-                "Virtual Assistant", 
-                "Web Specialist", 
-                "Data Entry Expert", 
-                "Tech-Savvy Admin"
-            ],
-            typeSpeed: 60,      // Bilis ng pag-type
-            backSpeed: 30,      // Bilis ng pag-bura
-            backDelay: 2000,    // Delay bago mabura
-            loop: true          // Uulitin nang walang hanggan
-        });
-
-        // 3. Mobile Menu Logic
+        // Mobile Menu Logic
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
-
         btn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
             menu.classList.toggle('flex');
         });
 
+        // Sticky Navbar
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -389,12 +376,46 @@
             }
         });
 
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-                menu.classList.remove('flex');
-            });
-        });
+        // Typing Effect Logic
+        const phrases = [
+            "Virtual Assistant",
+            "Web Specialist",
+            "Data Entry Expert",
+            "Admin Support"
+        ];
+        let currentPhraseIndex = 0;
+        let currentCharIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+        const typedTextElement = document.getElementById('typed-text');
+
+        function type() {
+            const currentPhrase = phrases[currentPhraseIndex];
+            
+            if (isDeleting) {
+                typedTextElement.textContent = currentPhrase.substring(0, currentCharIndex - 1);
+                currentCharIndex--;
+                typingSpeed = 50; 
+            } else {
+                typedTextElement.textContent = currentPhrase.substring(0, currentCharIndex + 1);
+                currentCharIndex++;
+                typingSpeed = 150; 
+            }
+
+            if (!isDeleting && currentCharIndex === currentPhrase.length) {
+                isDeleting = true;
+                typingSpeed = 2000; 
+            } else if (isDeleting && currentCharIndex === 0) {
+                isDeleting = false;
+                currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+                typingSpeed = 500; 
+            }
+
+            setTimeout(type, typingSpeed);
+        }
+
+        // Start Typing Animation
+        setTimeout(type, 1000);
     </script>
 </body>
 </html>
